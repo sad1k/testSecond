@@ -5,6 +5,7 @@ import { addCards } from "lib/features/cardsSlice";
 import { useAppDispatch } from "lib/hooks";
 import { useEffect, useState } from "react";
 import styles from "./MainPage.module.css";
+import loader from "assets/loader.gif";
 
 export const MainPage = () => {
   const { data, isLoading } = useGetPeoplesQuery();
@@ -23,7 +24,13 @@ export const MainPage = () => {
   return (
     <div className={styles.mainPage}>
       <FilterBar onChange={handleChange} />
-      <CardList showLiked={showLiked} />
+      {!isLoading ? (
+        <CardList showLiked={showLiked} />
+      ) : (
+        <div className={styles.loader}>
+          <img src={loader} alt="Загрузка" />
+        </div>
+      )}
     </div>
   );
 };
