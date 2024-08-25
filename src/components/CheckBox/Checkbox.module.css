@@ -1,0 +1,53 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox {
+  --bg: #243743;
+  --second-bg: #28b78d;
+  --width: 60px;
+  --height: 30px;
+  --offset: 2px;
+  --duration: 0.3s;
+  cursor: pointer;
+}
+
+.checkbox:hover {
+  filter: brightness(1.2);
+}
+
+.checkboxInput {
+  display: none;
+}
+
+.checkboxDiv {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--width);
+  background-color: var(--bg);
+  transition: var(--duration);
+}
+
+.checkboxInput:checked ~ .checkboxDiv {
+  background-color: var(--second-bg);
+}
+
+.checkboxInput:checked ~ .checkboxDiv::before {
+  background-color: var(--bg);
+  left: calc(var(--width) - var(--height) + var(--offset));
+}
+
+.checkboxDiv::before {
+  content: "";
+  position: absolute;
+  top: var(--offset);
+  left: var(--offset);
+  width: calc(var(--height) - 2 * var(--offset));
+  height: calc(var(--height) - 2 * var(--offset));
+  background-color: var(--second-bg);
+  border-radius: 50%;
+  transition: var(--duration);
+}

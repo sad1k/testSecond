@@ -1,0 +1,50 @@
+:root {
+  --bg: aliceblue;
+  --red: rgb(220, 86, 86);
+}
+
+.likeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox {
+  display: none;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+@keyframes like {
+  75% {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes dislike {
+  75% {
+    transform: scale(0.75);
+  }
+}
+
+.button .icon {
+  color: gray;
+  font-size: 4em;
+  padding-top: 5px;
+  animation: dislike 0.5s ease 0s;
+}
+
+.checkbox:checked + .button .icon {
+  color: var(--red);
+  animation: like 0.5s ease 0s;
+}
