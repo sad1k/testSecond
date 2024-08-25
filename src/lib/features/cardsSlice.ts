@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Detail } from './types';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Detail } from "./types";
 
 interface State {
   cards: Detail[];
@@ -11,7 +11,7 @@ const initialState: State = {
 };
 
 export const cardsSlice = createSlice({
-  name: 'cards',
+  name: "cards",
   initialState,
   reducers: {
     addCards(state, action: PayloadAction<Detail[] | undefined>) {
@@ -19,6 +19,9 @@ export const cardsSlice = createSlice({
     },
     removeCard(state, action: PayloadAction<Detail>) {
       state.cards = state.cards.filter(
+        (card) => card.name !== action.payload.name
+      );
+      state.likedCards = state.likedCards.filter(
         (card) => card.name !== action.payload.name
       );
     },

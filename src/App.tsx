@@ -6,15 +6,13 @@ import { store } from "lib/store";
 import { IconContext } from "react-icons";
 import { PersonPage } from "pages/PersonPage/PersonPage";
 
-const path = process.env.REACT_APP_FOR_PATH;
-
 const router = createBrowserRouter([
   {
-    path: path + "/",
+    path: "/testSecond/",
     element: <MainPage />,
   },
   {
-    path: path + "/person/:personId",
+    path: "/testSecond/person/:personId",
     element: <PersonPage />,
   },
 ]);

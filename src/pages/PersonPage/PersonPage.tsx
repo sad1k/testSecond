@@ -25,7 +25,9 @@ export const PersonPage = () => {
             <p>Eye color: {person.eye_color}</p>
             <p>Birth year: {person.birth_year}</p>
             <p>Gender: {person.gender}</p>
-            <button onClick={() => navigate("/")}>Вернуться к списку</button>
+            <button onClick={() => navigate("../../", { relative: "path" })}>
+              Вернуться к списку
+            </button>
           </>
         ) : (
           <p>Нет информации</p>
